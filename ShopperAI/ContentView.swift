@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    private var products = [
+        "banana",
+        "apples",
+        "chees",
+        "milk",
+        "oranges"
+    ]
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ZStack {
+                ForEach(products, id: \.self) {
+                    CardView(product: $0)
+                }
+            }
         }
         .padding()
     }
